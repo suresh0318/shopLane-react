@@ -1,0 +1,57 @@
+.outer {
+  margin-left: 10rem;
+  position: relative;
+}
+img {
+  width: 100px;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+}
+.inner button {
+  position: absolute;
+  right: 10rem;
+}
+.inner h4 {
+  margin-left: 1rem;
+  color: green;
+  position: absolute;
+  right: 20rem;
+}
+.inner h3 {
+  margin-left: 1rem;
+}
+.buy {
+  color: white;
+  background-color: green;
+  border: none;
+}
+@media only screen and (max-width: 768px) {
+  .outer {
+    margin-left: 0.3rem;
+  }
+  img {
+    margin-left: 0.2rem;
+    width: 50px;
+  }
+  .inner {
+    display: flex;
+  }
+  .inner button {
+    width: auto;
+    font-size: 10px;
+    position: absolute;
+    right: -10px;
+  }
+  .inner h4 {
+    margin-left: 0.2rem;
+    color: green;
+    position: absolute;
+    right: 10rem;
+  }
+  .inner h3 {
+    display: none;
+  }
+}
