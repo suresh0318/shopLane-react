@@ -38,22 +38,22 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 44px;
-  letter-spacing: -2px;
+
 }
 h4 {
   font-family: "Montserrat", sans-serif;
   margin-top: 20px;
-  font-weight: 200;
+  margin-left: 1rem;
   font-size: 20px;
-  letter-spacing: 1px;
+  
   color: rgb(27, 25, 25);
 }
 h3 {
   font-family: "Montserrat", sans-serif;
-  margin-top: 20px;
+  padding-left: 0.5rem;
   font-weight: 200;
-  font-size: 20px;
-  letter-spacing: 1px;
+  font-size: 16px;
+  
   color: rgb(27, 25, 25);
 }
 p {

@@ -23,8 +23,11 @@ function Cards() {
             <Link to={`/card/${id}`}>
               <img className="img" src={preview} alt="name" />
             </Link>
+            <div className="details">
             <h3>{name}</h3>
             <h4>{brand}</h4>
+            </div>
+           
           </div>
         ))}
     </div>
