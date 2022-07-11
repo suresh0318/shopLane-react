@@ -1,48 +1,62 @@
 import React from "react";
-import Slider from "react-slick";
+
 import "./index.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function SimpleSlider() {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-  };
   return (
-    <Slider {...settings} className="carousel">
-      <div>
-        <img
-          className="slider-img"
-          src="https://imgur.com/96OnkX7.png"
-          alt="slider-img"
-        />
+    <div
+      id="carouselExampleControls"
+      className="carousel slide"
+      data-ride="carousel"
+    >
+      <div className="carousel-inner">
+        <div className="carousel-item active">
+          <img
+            className="d-block w-100"
+            src="https://imgur.com/96OnkX7.png"
+            alt="First slide"
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            className="d-block w-100"
+            src="https://imgur.com/KtGxwnN.png"
+            alt="Second slide"
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            className="d-block w-100"
+            src="https://imgur.com/sfjg9R8.png"
+            alt="Third slide"
+          />
+        </div>
+        <div className="carousel-item">
+          <img
+            className="d-block w-100"
+            src="https://imgur.com/p0wdadG.png"
+            alt="Third slide"
+          />
+        </div>
       </div>
-      <div>
-        <img
-          className="slider-img"
-          src="https://imgur.com/KtGxwnN.png"
-          alt="slider-img"
-        />
-      </div>
-      <div>
-        <img
-          className="slider-img"
-          src="https://imgur.com/sfjg9R8.png"
-          alt="slider-img"
-        />
-      </div>
-      <div>
-        <img
-          className="slider-img"
-          src="https://imgur.com/p0wdadG.png"
-          alt="slider-img"
-        />
-      </div>
-    </Slider>
+      <a
+        className="carousel-control-prev"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="prev"
+      >
+        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span className="sr-only">Previous</span>
+      </a>
+      <a
+        className="carousel-control-next"
+        href="#carouselExampleControls"
+        role="button"
+        data-slide="next"
+      >
+        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+        <span className="sr-only">Next</span>
+      </a>
+    </div>
   );
 }

@@ -1,10 +1,15 @@
 import "./index.css";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { data } from "../../actions/actions";
 
 function Cards() {
-  const [list, setList] = useState([]);
+  const list = useSelector((state) => state.data);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     getData();
   }, []);
@@ -13,21 +18,22 @@ function Cards() {
     const result = await axios.get(
       "https://5d76bf96515d1a0014085cf9.mockapi.io/product"
     );
-    setList(result.data);
+
+    dispatch(data(result.data));
   };
+
   return (
-    <div className="card">
-      {list.length > 0 &&
+    <div className="cards">
+      {list &&
         list.map(({ preview, id, name, brand }) => (
           <div className="wrapper" key={id}>
             <Link to={`/card/${id}`}>
               <img className="img" src={preview} alt="name" />
             </Link>
             <div className="details">
-            <h3>{name}</h3>
-            <h4>{brand}</h4>
+              <h3>{name}</h3>
+              <h4>{brand}</h4>
             </div>
-           
           </div>
         ))}
     </div>

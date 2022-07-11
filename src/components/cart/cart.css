@@ -8,17 +8,13 @@ img {
 .inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0.5rem;
 }
-.inner button {
-  position: absolute;
-  right: 10rem;
-}
+
 .inner h4 {
   margin-left: 1rem;
   color: green;
-  position: absolute;
-  right: 20rem;
 }
 .inner h3 {
   margin-left: 1rem;
@@ -33,23 +29,20 @@ img {
     margin-left: 0.3rem;
   }
   img {
-    
     width: 50px;
   }
   .inner {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .inner button {
     width: auto;
     font-size: 10px;
-    position: absolute;
-    right: -10px;
   }
   .inner h4 {
     margin-left: 0.2rem;
     color: green;
-    position: absolute;
-    right: 10rem;
   }
   .inner h3 {
     display: none;

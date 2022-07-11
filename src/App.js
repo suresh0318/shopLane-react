@@ -6,11 +6,14 @@ import CheckOut from "./components/checkout/checkout";
 
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createStore } from "redux";
-
 import { Provider } from "react-redux";
 import { contactReducer } from "./reducer/reducer";
 
+
 function App() {
+
+ 
+
   const store = createStore(
     contactReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

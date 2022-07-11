@@ -59,6 +59,7 @@ body {
 .fa,
 .fas {
   font-weight: 900;
+ 
 }
 .fa,
 .far,
@@ -78,6 +79,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: center;
+  font-size: 1.5rem;
 }
 #cart-wrapper {
   position: relative;
@@ -95,7 +97,7 @@ body {
   color: white;
   border-radius: 50%;
   position: absolute;
-  top: -12px;
+  top: -8px;
   right: -12px;
 }
 #cart-wrapper > a {

@@ -1,9 +1,16 @@
 const intialState = {
   items: [],
+  word: "",
+  data:[]
 };
 
 export const contactReducer = (state = intialState, action) => {
   switch (action.type) {
+    case "DATA":
+      return{
+        ...state,
+        data : action.payload
+      }
     case "ADD_TO_CART":
       return {
         ...state,
@@ -18,6 +25,12 @@ export const contactReducer = (state = intialState, action) => {
       return {
         items: [],
       };
+      case "SEARCH_WORD":
+        return {
+          ...state,
+        data: state.data.filter((item) => item.name.toLowerCase().includes(action.payload) || item.brand.toLowerCase().includes(action.payload)),
+        }
+      
     default:
       return state;
   }

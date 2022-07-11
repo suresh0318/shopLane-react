@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
 
+
 function Card() {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -13,7 +14,7 @@ function Card() {
   const [item, setItem] = useState("");
   useEffect(() => {
     getData();
-  }, [item]);
+  }, []);
 
   const getData = async () => {
     const result = await axios.get(
@@ -31,6 +32,7 @@ function Card() {
     };
     dispatch(addToCart(new_contact));
     history.push("/");
+
   };
 
   return (
