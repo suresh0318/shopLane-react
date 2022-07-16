@@ -28,10 +28,7 @@ const Navbar = () => {
           <Link to="/">Accessories</Link>
         </div>
         <div id="search-wrapper">
-          <i
-            className="fas fa-search"
-          
-          ></i>
+          <i className="fas fa-search"></i>
           <input
             onChange={searchbar}
             id="search-box"
@@ -47,10 +44,6 @@ const Navbar = () => {
               <i className="fas fa-shopping-cart"></i>
             </Link>
           </div>
-          {/* <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-            alt="logo"
-          /> */}
         </div>
       </nav>
     </>

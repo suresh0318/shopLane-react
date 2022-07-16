@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
 
-
 function Card() {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -32,7 +31,6 @@ function Card() {
     };
     dispatch(addToCart(new_contact));
     history.push("/");
-
   };
 
   return (
