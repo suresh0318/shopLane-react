@@ -10,8 +10,8 @@ const CheckOut = () => {
             alt="checkOut"
           ></img>
         </div>
-        <h1 class="main-heading">Order Placed Successfully!!</h1>
-        <p class="section-heading">
+        <h1 className="main-heading">Order Placed Successfully!!</h1>
+        <p className="section-heading">
           We have sent you an email with the order details
         </p>
       </div>
