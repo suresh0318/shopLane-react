@@ -39,7 +39,7 @@ function Card() {
         <img className="mainImage" src={item.preview} alt="" />
       </div>
       <div className="right">
-        <h1>{item.name}hello</h1>
+        <h1>{item.name}</h1>
         <h4>{item.brand}</h4>
         <h3>Price: Rs {item.price}</h3>
         <h3>Description</h3>

@@ -1,9 +1,12 @@
 .outer {
-  margin-left: 10rem;
+  margin-left: 5rem;
   position: relative;
 }
-img {
+.preview{
   width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .inner {
   display: flex;
@@ -23,6 +26,12 @@ img {
   color: white;
   background-color: green;
   border: none;
+}
+.totalPrice{
+  font-size: 2rem;
+}
+.price{
+  color:red
 }
 @media only screen and (max-width: 768px) {
   .outer {

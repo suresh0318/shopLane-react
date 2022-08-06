@@ -30,7 +30,7 @@ const Cart = () => {
       ))}
 
       {items.length > 0 && (
-        <h3 className="totalPrice">Total Amount : {result}</h3>
+        <h3 className="totalPrice">Total Amount :<span className="price">{result}</span> </h3>
       )}
 
       {items.length > 0 && (

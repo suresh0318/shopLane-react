@@ -8,27 +8,36 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { contactReducer } from "./reducer/reducer";
-
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { persistGate } from "redux-persist/integration/react";
 
 function App() {
-
- 
+  const persistConfig = {
+    key: "root",
+    storage,
+  };
+  const persistedReducer = persistReducer(persistConfig, contactReducer);
 
   const store = createStore(
-    contactReducer,
+    persistedReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );
+
+  const persistor = persistStore(store);
   return (
     <Provider store={store}>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/card/:id" component={Card} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/checkout" component={CheckOut} />
-        </div>
-      </Router>
+      <persistGate persistor={persistor}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/card/:id" component={Card} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/checkout" component={CheckOut} />
+          </div>
+        </Router>
+      </persistGate>
     </Provider>
   );
 }
