@@ -13,7 +13,7 @@ const Cart = () => {
   }, 0);
   return (
     <div className="outer">
-      {items.length<1? <img className="cart-empty" src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png"></img>:items.map((item) => (
+      {items.length<1? <img alt="empty cart" className="cart-empty" src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png"></img>:items.map((item) => (
         <div className="inner" key={item.id}>
           <img src={item.preview} alt="img" className="preview" />
           <h3>{item.name}</h3>
