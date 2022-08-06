@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./checkout.css"
 const CheckOut = () => {
   return (
     <div>
-      <div id="main-wrapper">
+      <div className="main-wrapper">
         <div id="tick-wrapper">
           <img
             src="https://test-hosting-8f9bf.web.app/assets/white-tick.png"

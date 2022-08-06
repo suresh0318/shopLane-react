@@ -2,7 +2,7 @@
   margin-left: 5rem;
   position: relative;
 }
-.preview{
+.preview {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -16,10 +16,14 @@
 }
 
 .inner h4 {
+  padding: 0;
+  margin: 0;
   margin-left: 1rem;
   color: green;
 }
 .inner h3 {
+  padding: 0;
+  margin: 0;
   margin-left: 1rem;
 }
 .buy {
@@ -27,11 +31,18 @@
   background-color: green;
   border: none;
 }
-.totalPrice{
+.totalPrice {
   font-size: 2rem;
 }
-.price{
-  color:red
+.price {
+  color: red;
+}
+.cart-empty{
+ padding-top: 5rem;
+ padding-left: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media only screen and (max-width: 768px) {
   .outer {

@@ -2,7 +2,7 @@ const ADD_TO_CART = "ADD_TO_CART";
 const REMOVE_FROM_CART = "REMOVE_FROM_CART";
 const CLEAR_CART = "CLEAR_CART";
 const SEARCH_WORD = "SEARCH_WORD";
-const DATA = "DATA"
+const DATA = "DATA";
 
 export const addToCart = (item) => {
   return {
@@ -24,12 +24,12 @@ export const clearCart = () => {
 export const searchWord = (word) => {
   return {
     type: SEARCH_WORD,
-    payload:word,
+    payload: word,
   };
 };
 export const data = (data) => {
   return {
     type: DATA,
-    payload:data,
+    payload: data,
   };
 };
