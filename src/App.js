@@ -10,7 +10,7 @@ import { Provider } from "react-redux";
 import { contactReducer } from "./reducer/reducer";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { persistGate } from "redux-persist/integration/react";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   const persistConfig = {
@@ -27,7 +27,7 @@ function App() {
   const persistor = persistStore(store);
   return (
     <Provider store={store}>
-      <persistGate persistor={persistor}>
+      <PersistGate persistor={persistor}>
         <Router>
           <div className="App">
             <Navbar />
@@ -37,7 +37,7 @@ function App() {
             <Route exact path="/checkout" component={CheckOut} />
           </div>
         </Router>
-      </persistGate>
+      </PersistGate>
     </Provider>
   );
 }
