@@ -34,7 +34,7 @@ function Card() {
       id: new Date().getTime().toString(),
     };
     dispatch(addToCart(new_contact));
-    toast.success("Wow so easy!")
+    toast.success("product added to cart")
     history.push("/");
   };
 
