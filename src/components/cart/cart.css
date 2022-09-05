@@ -37,12 +37,9 @@
 .price {
   color: red;
 }
-.cart-empty{
- padding-top: 5rem;
- padding-left: 18rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cart-empty {
+  margin-left: 30rem;
+  margin-top: 10rem;
 }
 @media only screen and (max-width: 768px) {
   .outer {

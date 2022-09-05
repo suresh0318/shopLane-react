@@ -5,8 +5,11 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
+toast.configure()
 function Card() {
   const dispatch = useDispatch();
   let history = useHistory();
@@ -31,7 +34,7 @@ function Card() {
       id: new Date().getTime().toString(),
     };
     dispatch(addToCart(new_contact));
-
+    toast.success("Wow so easy!")
     history.push("/");
   };
 
@@ -48,7 +51,7 @@ function Card() {
         <p>{item.description}</p>
         <button onClick={addItem}>Add to Cart</button>
       </div>
-
+      {/* <ToastContainer /> */}
     </div>
   );
 }
