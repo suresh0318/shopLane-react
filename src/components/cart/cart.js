@@ -60,7 +60,7 @@ const Cart = () => {
             }}
             className="buy mt-2"
           >
-            Buy now
+            Buy Now
           </button>
         </Link>
       )}
