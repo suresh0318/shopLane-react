@@ -12,22 +12,39 @@ const Cart = () => {
     return acc + obj.price;
   }, 0);
   return (
-    <div className="outer">
-      {items.length<1? <img alt="empty" className="cart-empty" src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png"></img>:items.map((item) => (
-        <div className="inner" key={item.id}>
-          <img src={item.preview} alt="img" className="preview" />
-          <h3>{item.name}</h3>
-          <h4>Price : {item.price}</h4>
-
-          <button
-            onClick={() => {
-              dispatch(removeFromCart(item.id));
-            }}
-          >
-            Remove
-          </button>
-        </div>
-      ))}
+    <div className="outer fluid">
+      {items.length < 1 ? (
+        <img
+          alt="empty"
+          className="cart-empty"
+          src="https://mir-s3-cdn-cf.behance.net/projects/404/95974e121862329.Y3JvcCw5MjIsNzIxLDAsMTM5.png"
+        ></img>
+      ) : (
+        items.map((item) => (
+          <div className="row my-5">
+            <div className="col-md-3">
+              {" "}
+              <img src={item.preview} alt="img" className="preview" />
+            </div>
+            <div className="col-md-3">
+              <h3>{item.name}</h3>
+            </div>
+            <div className="col-md-3">
+              <h4 className="mt-0">Price : {item.price}</h4>
+            </div>
+            <div className="col-md-3">
+              {" "}
+              <button
+                onClick={() => {
+                  dispatch(removeFromCart(item.id));
+                }}
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        ))
+      )}
 
       {items.length > 0 && (
         <h3 className="totalPrice">
@@ -41,7 +58,7 @@ const Cart = () => {
             onClick={() => {
               dispatch(clearCart());
             }}
-            className="buy"
+            className="buy mt-2"
           >
             Buy now
           </button>

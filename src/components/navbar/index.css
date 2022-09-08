@@ -121,6 +121,18 @@ h2 {
   font-size: 1.5rem;
   font-weight: light;
 }
+.login-details{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-login-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media only screen and (max-width: 768px) {
   #topbar{
     width: 90vw;

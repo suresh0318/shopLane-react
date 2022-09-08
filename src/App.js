@@ -3,7 +3,6 @@ import Home from "./components/home/Home";
 import Card from "./components/card";
 import Cart from "./components/cart/cart";
 import CheckOut from "./components/checkout/checkout";
-
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
