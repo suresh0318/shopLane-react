@@ -7,9 +7,7 @@ import { data } from "../../actions/actions";
 
 function Cards() {
   const list = useSelector((state) => state.data);
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     getData();
   }, []);
@@ -18,7 +16,6 @@ function Cards() {
     const result = await axios.get(
       "https://5d76bf96515d1a0014085cf9.mockapi.io/product"
     );
-
     dispatch(data(result.data));
   };
 

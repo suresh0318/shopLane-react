@@ -2,11 +2,21 @@ import "./cart.css";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, clearCart } from "../../actions/actions";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Cart = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const cartButton = () => {
+    if (isAuthenticated) {
+      dispatch(clearCart());
+      history.push("/checkout");
+    } else {
+      loginWithRedirect();
+    }
+  };
   const dispatch = useDispatch();
-
+  const history = useHistory();
   const items = useSelector((state) => state.items);
   const result = items.reduce(function (acc, obj) {
     return acc + obj.price;
@@ -21,9 +31,8 @@ const Cart = () => {
         ></img>
       ) : (
         items.map((item) => (
-          <div className="row my-5">
+          <div className="row my-5 d-flex align-items-center" key={item.id}>
             <div className="col-md-3">
-              {" "}
               <img src={item.preview} alt="img" className="preview" />
             </div>
             <div className="col-md-3">
@@ -33,7 +42,6 @@ const Cart = () => {
               <h4 className="mt-0">Price : {item.price}</h4>
             </div>
             <div className="col-md-3">
-              {" "}
               <button
                 onClick={() => {
                   dispatch(removeFromCart(item.id));
@@ -48,21 +56,14 @@ const Cart = () => {
 
       {items.length > 0 && (
         <h3 className="totalPrice">
-          Total Amount :<span className="price">{result}</span>{" "}
+          Total Amount :<span className="price">{result}</span>
         </h3>
       )}
 
       {items.length > 0 && (
-        <Link to="/checkout">
-          <button
-            onClick={() => {
-              dispatch(clearCart());
-            }}
-            className="buy mt-2"
-          >
-            Buy now
-          </button>
-        </Link>
+        <button onClick={cartButton} className="buy mt-2">
+          Buy now
+        </button>
       )}
     </div>
   );

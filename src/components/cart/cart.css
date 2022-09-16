@@ -42,6 +42,9 @@
   margin-left: 30rem;
   margin-top: 10rem;
 }
+.qty-font{
+  font-size: 1.5rem;
+}
 @media only screen and (max-width: 768px) {
   .outer {
     margin-left: 0.3rem;

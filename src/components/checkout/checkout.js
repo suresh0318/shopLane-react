@@ -11,7 +11,7 @@ const CheckOut = () => {
           ></img>
         </div>
         <h1 className="main-heading">Order Placed Successfully!!</h1>
-        <p className="section-heading">
+        <p className="section-heading text-center">
           We have sent you an email with the order details
         </p>
       </div>
