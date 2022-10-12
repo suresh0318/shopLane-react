@@ -14,9 +14,9 @@ const Navbar = () => {
   const items = useSelector((state) => state.items);
 
   const [search, setSearch] = useState("");
+  dispatch(searchWord(search));
   const searchbar = (e) => {
     setSearch(e.target.value.toLowerCase());
-    dispatch(searchWord(search));
   };
   return (
     <>

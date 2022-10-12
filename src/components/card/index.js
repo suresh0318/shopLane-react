@@ -32,7 +32,9 @@ function Card() {
       preview: item.preview,
       price: item.price,
       id: new Date().getTime().toString(),
+      qty:1,
     };
+
     dispatch(addToCart(new_contact));
     toast.success("product added to cart")
     history.push("/");
