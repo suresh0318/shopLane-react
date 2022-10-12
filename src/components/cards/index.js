@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { data } from "../../actions/actions";
 
 function Cards() {
-  const list = useSelector((state) => state.data);
+  const list = useSelector((state) => state.searchItems);
   const dispatch = useDispatch();
   useEffect(() => {
     getData();
