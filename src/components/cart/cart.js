@@ -6,14 +6,11 @@ import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Cart = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
   const cartButton = () => {
-    if (isAuthenticated) {
+    
       dispatch(clearCart());
       history.push("/checkout");
-    } else {
-      loginWithRedirect();
-    }
+    
   };
   const dispatch = useDispatch();
   const history = useHistory();

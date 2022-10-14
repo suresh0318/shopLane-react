@@ -11,6 +11,7 @@ export const contactReducer = (state = intialState, action) => {
       return {
         ...state,
         data: action.payload,
+        searchItems : action.payload
       };
     case "ADD_TO_CART":
       const  product = action.payload;
@@ -31,9 +32,7 @@ export const contactReducer = (state = intialState, action) => {
       };
     case "CLEAR_CART":
       return {
-        items: [],
-        searchItems: [],
-        word: "",
+        items: []
       };
     case "INCREASE_QTY":
       const index = state.items.findIndex(
