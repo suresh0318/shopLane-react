@@ -1,12 +1,12 @@
 import React from "react";
-import "./index.css";
+import "./navbar.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchWord } from "../../actions/actions";
 import { useAuth0 } from "@auth0/auth0-react";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt , FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
@@ -57,7 +57,7 @@ const Navbar = () => {
           <div id="cart-wrapper">
             <p id="cart-count">{items.length}</p>
             <Link to="/Cart">
-              <i className="fas fa-shopping-cart"></i>
+            <FaShoppingCart />
             </Link>
           </div>
         </div>

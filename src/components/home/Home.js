@@ -1,5 +1,5 @@
 import Slider from "../carousal";
-import Cards from "../cards";
+import Cards from "../cards/Cards";
 
 function Home() {
   return (

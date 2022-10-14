@@ -18,9 +18,9 @@ const Cart = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const items = useSelector((state) => state.items);
-  // const result = items.reduce(function (acc, obj) {
-  //   return acc + obj.price;
-  // }, 0);
+  const result = items.reduce(function (acc, obj) {
+    return acc + (obj.price*obj.qty);
+  }, 0);
   return (
     <div className="outer fluid">
       {items.length < 1 ? (
@@ -67,7 +67,7 @@ const Cart = () => {
 
       {items.length > 0 && (
         <h3 className="totalPrice">
-          Total Amount :<span className="price">{0}</span>
+          Total Amount :<span className="price">{result}</span>
         </h3>
       )}
 

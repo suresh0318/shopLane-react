@@ -1,17 +1,17 @@
-import "./index.css";
+import "./card.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { addToCart } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-
-toast.configure()
+toast.configure();
 function Card() {
   const dispatch = useDispatch();
+  const items = useSelector((state) => state.items);
   let history = useHistory();
   const { id } = useParams();
   const [item, setItem] = useState("");
@@ -27,17 +27,24 @@ function Card() {
   };
 
   const addItem = () => {
+    const exist = items.find((x) => x.id === item.id);
     const new_contact = {
       name: item.name,
       preview: item.preview,
       price: item.price,
-      id: new Date().getTime().toString(),
-      qty:1,
+      id: item.id,
+      qty: 1,
     };
+    if(exist){
+      toast.warn("product already added to cart")
+    }
+    else{
+      dispatch(addToCart(new_contact));
+      toast.success("product added to cart");
+      history.push("/");
+    }
 
-    dispatch(addToCart(new_contact));
-    toast.success("product added to cart")
-    history.push("/");
+  
   };
 
   return (
@@ -53,7 +60,6 @@ function Card() {
         <p>{item.description}</p>
         <button onClick={addItem}>Add to Cart</button>
       </div>
-      {/* <ToastContainer /> */}
     </div>
   );
 }

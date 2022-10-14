@@ -1,6 +1,6 @@
-import Navbar from "./components/navbar";
+import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
-import Card from "./components/card";
+import Card from "./components/card/Card";
 import Cart from "./components/cart/cart";
 import CheckOut from "./components/checkout/checkout";
 import { BrowserRouter as Router, Route } from "react-router-dom";

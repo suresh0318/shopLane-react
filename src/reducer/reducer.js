@@ -11,13 +11,19 @@ export const contactReducer = (state = intialState, action) => {
       return {
         ...state,
         data: action.payload,
-        searchItems: action.payload,
       };
     case "ADD_TO_CART":
-      return {
-        ...state,
-        items: [action.payload, ...state.items],
-      };
+      const  product = action.payload;
+      const exist = state.items.find((x) => x.id === product.id);
+      if(exist){
+          return state
+      }else{
+          const product = action.payload;
+          return{
+              ...state,
+             items:[product,...state.items]
+          }
+      }
     case "REMOVE_FROM_CART":
       return {
         ...state,
@@ -26,16 +32,17 @@ export const contactReducer = (state = intialState, action) => {
     case "CLEAR_CART":
       return {
         items: [],
+        searchItems: [],
+        word: "",
       };
     case "INCREASE_QTY":
-      for (let i = 0; i < state.items.length; i++) {
-        if (state.items[i].id === action.payload.itemId) {
-          return {
-            ...state,
-            items: (state.items[i].qty = action.payload.incQty),
-          };
-        }
-      }
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload.itemId
+      );
+      const newArray = [...state.items];
+      newArray[index].qty = action.payload.incQty;
+      return { ...state, items: newArray };
+
     case "SEARCH_WORD":
       return {
         ...state,
