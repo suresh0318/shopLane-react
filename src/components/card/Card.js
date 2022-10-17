@@ -2,7 +2,7 @@ import "./card.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch , useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../actions/actions";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 toast.configure();
 function Card() {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
+  const items = useSelector((state) => state.cartItems);
   let history = useHistory();
   const { id } = useParams();
   const [item, setItem] = useState("");
@@ -35,16 +35,13 @@ function Card() {
       id: item.id,
       qty: 1,
     };
-    if(exist){
-      toast.warn("product already added to cart")
-    }
-    else{
+    if (exist) {
+      toast.warn("product already added to cart");
+    } else {
       dispatch(addToCart(new_contact));
       toast.success("product added to cart");
       history.push("/");
     }
-
-  
   };
 
   return (

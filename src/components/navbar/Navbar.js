@@ -6,19 +6,17 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchWord } from "../../actions/actions";
 import { useAuth0 } from "@auth0/auth0-react";
-import { FaUserAlt , FaShoppingCart } from "react-icons/fa";
+import { FaUserAlt, FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.items);
+  const items = useSelector((state) => state.cartItems);
 
-  const [search, setSearch] = useState("");
- 
   const searchbar = (e) => {
-    setSearch(e.target.value.toLowerCase());
+    dispatch(searchWord(e.target.value.toLowerCase()));
   };
-  dispatch(searchWord(search));
+
   return (
     <>
       <nav id="topbar">
@@ -47,10 +45,15 @@ const Navbar = () => {
             {isAuthenticated ? (
               <div className="user-login-name">
                 <h5 className="mb-0 mx-2">{user.nickname}</h5>
-                <button onClick={logout} className="btn btn-light ">logout</button>
+                <button onClick={logout} className="btn btn-light ">
+                  logout
+                </button>
               </div>
             ) : (
-              <button onClick={loginWithRedirect} className="ml-2 btn btn-light">
+              <button
+                onClick={loginWithRedirect}
+                className="ml-2 btn btn-light"
+              >
                 login
               </button>
             )}
@@ -58,7 +61,7 @@ const Navbar = () => {
           <div id="cart-wrapper">
             <p id="cart-count">{items.length}</p>
             <Link to="/Cart">
-            <FaShoppingCart />
+              <FaShoppingCart />
             </Link>
           </div>
         </div>

@@ -1,5 +1,5 @@
 const intialState = {
-  items: [],
+  cartItems: [],
   word: "",
   data: [],
   searchItems: [],
@@ -11,45 +11,48 @@ export const contactReducer = (state = intialState, action) => {
       return {
         ...state,
         data: action.payload,
-        searchItems : action.payload
+        searchItems: action.payload,
       };
     case "ADD_TO_CART":
-      const  product = action.payload;
-      const exist = state.items.find((x) => x.id === product.id);
-      if(exist){
-          return state
-      }else{
-          const product = action.payload;
-          return{
-              ...state,
-             items:[product,...state.items]
-          }
+      const product = action.payload;
+      const exist = state.cartItems.find((x) => x.id === product.id);
+      if (exist) {
+        return state;
+      } else {
+        const product = action.payload;
+        return {
+          ...state,
+          cartItems: [product, ...state.cartItems],
+        };
       }
     case "REMOVE_FROM_CART":
+      console.log(state);
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
       };
+
     case "CLEAR_CART":
       return {
-        items: []
+        cartItems: [],
       };
     case "INCREASE_QTY":
-      const index = state.items.findIndex(
+      const index = state.cartItems.findIndex(
         (item) => item.id === action.payload.itemId
       );
-      const newArray = [...state.items];
+      const newArray = [...state.cartItems];
       newArray[index].qty = action.payload.incQty;
-      return { ...state, items: newArray };
+      return { ...state, cartItems: newArray };
 
     case "SEARCH_WORD":
+      let dummyData = state.data.filter(
+        (item) =>
+          item.name.toLowerCase().includes(action.payload) ||
+          item.brand.toLowerCase().includes(action.payload)
+      );
       return {
         ...state,
-        searchItems: state.data.filter(
-          (item) =>
-            item.name.toLowerCase().includes(action.payload) ||
-            item.brand.toLowerCase().includes(action.payload)
-        ),
+        searchItems: dummyData,
       };
 
     default:

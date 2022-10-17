@@ -1,22 +1,25 @@
 import "./cart.css";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart ,increaseQty } from "../../actions/actions";
+import { removeFromCart, clearCart, increaseQty } from "../../actions/actions";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Cart = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
   const cartButton = () => {
-    
+    if (isAuthenticated) {
       dispatch(clearCart());
       history.push("/checkout");
-    
+    } else {
+      loginWithRedirect();
+    }
   };
   const dispatch = useDispatch();
   const history = useHistory();
-  const items = useSelector((state) => state.items);
+  const items = useSelector((state) => state.cartItems);
   const result = items.reduce(function (acc, obj) {
-    return acc + (obj.price*obj.qty);
+    return acc + obj.price * obj.qty;
   }, 0);
   return (
     <div className="outer fluid">
@@ -36,18 +39,23 @@ const Cart = () => {
               <h3>{item.name}</h3>
             </div>
             <div className="col-md-2">
-            <select defaultValue={item.qty} onChange={(e)=>{
-              dispatch(increaseQty({incQty:e.target.value,itemId:item.id}))
-            }}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-            </select>
+              <select
+                defaultValue={item.qty}
+                onChange={(e) => {
+                  dispatch(
+                    increaseQty({ incQty: e.target.value, itemId: item.id })
+                  );
+                }}
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
             </div>
-            
+
             <div className="col-md-2">
-              <h4 className="mt-0">Price : {item.price*item.qty}</h4>
+              <h4 className="mt-0">Price : {item.price * item.qty}</h4>
             </div>
             <div className="col-md-2">
               <button
